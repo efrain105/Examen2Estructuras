@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="1045.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.cardona.estructuras.listascirculardoble.controller.MenuPrincipalController">
+    <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="1045.0">
+        <children>
+            <Pane fx:id="ventanaprincipal" prefHeight="690.0" prefWidth="978.0" stylesheets="@style.css">
+                <children>
+                    <Button layoutX="317.0" layoutY="577.0" onAction="#eliminarLibroInicio" styleClass="boton" text="Eliminar Libro Inicio" />
+                    <Button layoutX="523.0" layoutY="577.0" onAction="#eliminarLibroFinal" styleClass="boton" text="Eliminar Libro Final" />
+                    <Button layoutX="712.0" layoutY="577.0" onAction="#eliminarLibroPosicion" styleClass="boton" text="Eliminar Libro en Posición" />
+                    <Button layoutX="481.0" layoutY="183.0" onAction="#vaciarLista" prefHeight="36.0" prefWidth="130.0" styleClass="boton" text="Vaciar Lista" />
+                    <Button layoutX="631.0" layoutY="183.0" onAction="#destruirLista" prefHeight="36.0" prefWidth="130.0" styleClass="boton" text="Destruir Lista" />
+                    <Button fx:id="goAgregarLibroInicio" layoutX="22.0" layoutY="509.0" mnemonicParsing="false" onAction="#onGoAgregarLibroInicio" prefHeight="56.0" prefWidth="243.0" text="Agregar Libro al Inicio" />
+                    <Button fx:id="goAgregarLibroFinal" layoutX="22.0" layoutY="324.0" mnemonicParsing="false" onAction="#OnGoAgregarLibroFinal" prefHeight="56.0" prefWidth="243.0" text="Agregar Libro al Final" />
+                    <Button fx:id="goAgregarLibroPosicion" layoutX="22.0" layoutY="420.0" mnemonicParsing="false" onAction="#OnGoAgregarLibroPosicion" prefHeight="56.0" prefWidth="243.0" text="Agregar Libro en Posición" />
+                    <Button fx:id="salir" layoutX="813.0" layoutY="30.0" mnemonicParsing="false" onAction="#OnActionSalir" prefHeight="47.0" prefWidth="211.0" text="Salir" />
+                    <Button layoutX="331.0" layoutY="183.0" onAction="#crearLista" prefHeight="36.0" prefWidth="130.0" styleClass="boton" text="Crear Lista" />
+                    <TextArea fx:id="outputArea" layoutX="292.0" layoutY="230.0" prefHeight="335.0" prefWidth="720.0" style="-fx-font-family: 'Courier New'; -fx-font-size: 12px;" />
+                    <Label fx:id="menuTitulo" alignment="CENTER" layoutX="-18.0" layoutY="30.0" prefHeight="77.0" prefWidth="406.0" text="Listas Circulares" textFill="WHITE">
+                        <font>
+                            <Font size="36.0" />
+                        </font>
+                    </Label>
+                    <ImageView fitHeight="114.0" fitWidth="117.0" layoutX="347.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@insignia.png" />
+                        </image>
+                    </ImageView>
+                    <Button fx:id="goModificarLibro" layoutX="22.0" layoutY="230.0" mnemonicParsing="false" onAction="#OnGoModificarLibro" prefHeight="56.0" prefWidth="243.0" text="Modificar Libros" />
+               <Button fx:id="recorrerNodos" layoutX="780.0" layoutY="183.0" onAction="#OnRecorrerNodos" prefHeight="36.0" prefWidth="211.0" styleClass="boton" text="Recorrer Nodos" />
+                </children>
+            </Pane>
+        </children>
+    </VBox>
+</AnchorPane>

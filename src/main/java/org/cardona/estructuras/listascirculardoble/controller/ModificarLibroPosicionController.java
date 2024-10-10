@@ -29,7 +29,9 @@ public class ModificarLibroPosicionController implements Initializable {
     @FXML
     private TextArea posicionesDisponibles;
 
-    private ListaCircularDobleLibros lista;  // Reference to the main list
+    //Desde el menu se hace referencia a esta lista, es el mismo objeto
+    private ListaCircularDobleLibros lista;  // Referencia a la lista compartida
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -41,7 +43,7 @@ public class ModificarLibroPosicionController implements Initializable {
     }
 
     public void setLista(ListaCircularDobleLibros lista) {
-        this.lista = lista;  // Set the shared list from MenuPrincipalController
+        this.lista = lista;  // Establecer la lista compartida es importante mencionar this.lista para referirse a la lista de la clase
         mostrarLista();
     }
 
@@ -76,26 +78,26 @@ public class ModificarLibroPosicionController implements Initializable {
             try {
                 int posicionLibro = Integer.parseInt(posicionTexto) - 1;
 
-                // Validate the position
+                // Validar que la posición sea válida
                 if (posicionLibro < 0 || posicionLibro >= lista.size()) {
                     throw new IndexOutOfBoundsException("Posición no válida");
                 }
 
-                // Create the new book to replace the existing one
+                // crear un nuevo libro con los datos ingresados
                 Libro libroModificado = new Libro(tituloLibro, autorLibro, editorialLibro);
 
-                // Modify the book in the specified position
+                // Modificar el libro en la posición indicada
                 lista.modificarEnPosicion(posicionLibro, libroModificado);
 
                 System.out.println("Libro modificado en la posición " + (posicionLibro + 1) + ": " + libroModificado);
 
-                // Show a success alert
+                // Mostar un mensaje de éxito
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Libro Modificado");
                 alert.setHeaderText(null);
                 alert.setContentText("El libro ha sido modificado en la posición " + (posicionLibro + 1) + " de la lista.");
 
-                // Wait for the user to press "OK"
+                // Esperar a que el usuario presione "OK"
                 alert.showAndWait().ifPresent(response -> {
                     if (response == ButtonType.OK) {
                         Stage stage = (Stage) modificar.getScene().getWindow();
@@ -104,14 +106,14 @@ public class ModificarLibroPosicionController implements Initializable {
                 });
 
             } catch (NumberFormatException e) {
-                // Show a warning if the position is not a valid number
+                // Mostrar un mensaje de advertencia si la posición no es un número
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Posición Inválida");
                 alert.setHeaderText(null);
                 alert.setContentText("Por favor, ingrese un número válido para la posición.");
                 alert.showAndWait();
             } catch (IndexOutOfBoundsException e) {
-                // Show a warning if the position is out of bounds
+                // Mostrar un mensaje de advertencia si la posición no es válida
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Posición Inválida");
                 alert.setHeaderText(null);
@@ -121,7 +123,7 @@ public class ModificarLibroPosicionController implements Initializable {
                 throw new RuntimeException(e);
             }
         } else {
-            // Show a warning if any fields are empty
+            // Mostar un mensaje de advertencia si faltan campos por llenar
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Campos Vacíos");
             alert.setHeaderText(null);

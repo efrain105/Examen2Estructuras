@@ -27,8 +27,8 @@ public class RecorrerNodosController implements Initializable {
     public FlowPane flowPaneLibros;
     private Stage stage;
 
-    private ListaCircularDobleLibros lista;  // Reference to the main list
-    private Nodo nodoActual;  // To track the current node
+    private ListaCircularDobleLibros lista;  // Referencia a la lista compartida
+    private Nodo nodoActual;  // para recorrer la lista
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -36,7 +36,7 @@ public class RecorrerNodosController implements Initializable {
 
     public void setLista(ListaCircularDobleLibros lista) {
         this.lista = lista;
-        this.nodoActual = lista.primer();  // Start at the first node
+        this.nodoActual = lista.primer();  // Empezar por el primer nodo, especificamente el nodo cabeza
         mostrarNodoActual();
     }
 

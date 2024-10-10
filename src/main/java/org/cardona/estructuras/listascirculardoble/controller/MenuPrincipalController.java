@@ -281,7 +281,7 @@ public class MenuPrincipalController implements Initializable {
                 mostrarLista();
                 break;
             } catch (IllegalStateException e) {
-                // Do nothing
+                // toDo
             }
         }
     }
@@ -309,7 +309,6 @@ public class MenuPrincipalController implements Initializable {
             alert.setHeaderText(null);
             alert.setContentText("La lista no ha sido creada.");
             alert.showAndWait();
-            return;
         }else {
             lista = null;
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -340,7 +339,7 @@ private int validarIndice(int tamanoLista) {
         if (result.isPresent() && result.get().matches("\\d+")) {
             index = Integer.parseInt(result.get());
         } else if (!result.isPresent()) {
-            // User pressed cancel
+            // Si se preciona cancel retorna -1 y sales del método
             return -1;
         } else {
             Alert invalidInputAlert = new Alert(Alert.AlertType.WARNING);
@@ -366,7 +365,7 @@ private int validarIndice(int tamanoLista) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/cardona/estructuras/listascirculardoble/recorrer-nodos.fxml"));
             Parent root = loader.load();
             RecorrerNodosController recorrerNodosController = loader.getController();
-            recorrerNodosController.setLista(lista);  // Pass the existing list to the new controller
+            recorrerNodosController.setLista(lista);
             Stage stage = new Stage();
             recorrerNodosController.setStage(stage);
             stage.setScene(new Scene(root));

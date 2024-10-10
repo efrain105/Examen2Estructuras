@@ -22,7 +22,7 @@ public class AgregarLibroInicioController implements Initializable {
     public Button regresar;
     private Stage stage;
 
-    private ListaCircularDobleLibros lista;  // Reference to the main list
+    private ListaCircularDobleLibros lista;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {}
@@ -32,7 +32,7 @@ public class AgregarLibroInicioController implements Initializable {
     }
 
     public void setLista(ListaCircularDobleLibros lista) {
-        this.lista = lista;  // Set the shared list from MenuPrincipalController
+        this.lista = lista;
     }
 
     public void onGuardar(ActionEvent actionEvent) throws Exception {
@@ -44,21 +44,19 @@ public class AgregarLibroInicioController implements Initializable {
         if (!tituloLibro.isEmpty() && !autorLibro.isEmpty() && !editorialLibro.isEmpty()) {
             Libro nuevoLibro = new Libro(tituloLibro, autorLibro, editorialLibro);
 
-            // Add the new book at the beginning of the list
             lista.insertarInicio(nuevoLibro);
 
             System.out.println("Libro agregado al inicio: " + nuevoLibro);
 
-            // Show an alert to notify the user
+
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Libro Agregado");
             alert.setHeaderText(null);
             alert.setContentText("El libro ha sido agregado al inicio de la lista.");
 
-            // Wait for the user to press "OK"
+
             alert.showAndWait().ifPresent(response -> {
                 if (response == ButtonType.OK) {
-                    // Close the current window (AgregarLibroInicio window)
                     Stage stage = (Stage) guardar.getScene().getWindow();
                     stage.close();
                 }
@@ -66,12 +64,10 @@ public class AgregarLibroInicioController implements Initializable {
             MenuPrincipalStage menuPrincipalStage = new MenuPrincipalStage();
             menuPrincipalStage.start(stage);
         } else {
-            // Show a warning if the fields are empty
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Campos Vacíos");
             alert.setHeaderText(null);
             alert.setContentText("Por favor, llene todos los campos antes de guardar.");
-
             alert.showAndWait();
         }
 

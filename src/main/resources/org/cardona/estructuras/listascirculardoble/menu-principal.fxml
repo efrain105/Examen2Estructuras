@@ -3,41 +3,68 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.effect.Light.Point?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="1045.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.cardona.estructuras.listascirculardoble.controller.MenuPrincipalController">
-    <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="1045.0">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.cardona.estructuras.listascirculardoble.controller.MenuPrincipalController">
+    <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1200.0">
         <children>
-            <Pane fx:id="ventanaprincipal" prefHeight="690.0" prefWidth="978.0" stylesheets="@style.css">
+            <Pane fx:id="ventanaprincipal" prefHeight="755.0" prefWidth="1200.0" stylesheets="@style.css">
                 <children>
-                    <Button layoutX="317.0" layoutY="577.0" onAction="#eliminarLibroInicio" styleClass="boton" text="Eliminar Libro Inicio" />
-                    <Button layoutX="523.0" layoutY="577.0" onAction="#eliminarLibroFinal" styleClass="boton" text="Eliminar Libro Final" />
-                    <Button layoutX="712.0" layoutY="577.0" onAction="#eliminarLibroPosicion" styleClass="boton" text="Eliminar Libro en Posición" />
-                    <Button layoutX="481.0" layoutY="183.0" onAction="#vaciarLista" prefHeight="36.0" prefWidth="130.0" styleClass="boton" text="Vaciar Lista" />
-                    <Button layoutX="631.0" layoutY="183.0" onAction="#destruirLista" prefHeight="36.0" prefWidth="130.0" styleClass="boton" text="Destruir Lista" />
-                    <Button fx:id="goAgregarLibroInicio" layoutX="22.0" layoutY="509.0" mnemonicParsing="false" onAction="#onGoAgregarLibroInicio" prefHeight="56.0" prefWidth="243.0" text="Agregar Libro al Inicio" />
-                    <Button fx:id="goAgregarLibroFinal" layoutX="22.0" layoutY="324.0" mnemonicParsing="false" onAction="#OnGoAgregarLibroFinal" prefHeight="56.0" prefWidth="243.0" text="Agregar Libro al Final" />
-                    <Button fx:id="goAgregarLibroPosicion" layoutX="22.0" layoutY="420.0" mnemonicParsing="false" onAction="#OnGoAgregarLibroPosicion" prefHeight="56.0" prefWidth="243.0" text="Agregar Libro en Posición" />
-                    <Button fx:id="salir" layoutX="813.0" layoutY="30.0" mnemonicParsing="false" onAction="#OnActionSalir" prefHeight="47.0" prefWidth="211.0" text="Salir" />
-                    <Button layoutX="331.0" layoutY="183.0" onAction="#crearLista" prefHeight="36.0" prefWidth="130.0" styleClass="boton" text="Crear Lista" />
-                    <TextArea fx:id="outputArea" layoutX="292.0" layoutY="230.0" prefHeight="335.0" prefWidth="720.0" style="-fx-font-family: 'Courier New'; -fx-font-size: 12px;" />
-                    <Label fx:id="menuTitulo" alignment="CENTER" layoutX="-18.0" layoutY="30.0" prefHeight="77.0" prefWidth="406.0" text="Listas Circulares" textFill="WHITE">
+                    <Button fx:id="eliminarInicio" layoutX="296.0" layoutY="173.0" onAction="#eliminarLibroInicio" prefHeight="40.0" prefWidth="162.0" styleClass="boton" text="Eliminar Inicio" />
+                    <Button fx:id="eliminarFinal" layoutX="510.0" layoutY="173.0" onAction="#eliminarLibroFinal" prefHeight="40.0" prefWidth="162.0" styleClass="boton" text="Eliminar Final" />
+                    <Button fx:id="eliminarPos" layoutX="739.0" layoutY="173.0" onAction="#eliminarLibroPosicion" prefHeight="40.0" prefWidth="230.0" styleClass="boton" text="Eliminar en Posición" />
+                    <Button layoutX="1022.0" layoutY="375.0" onAction="#vaciarLista" prefHeight="40.0" prefWidth="142.0" styleClass="boton" text="Vaciar Lista" />
+                    <Button layoutX="1022.0" layoutY="491.0" onAction="#destruirLista" prefHeight="40.0" prefWidth="142.0" styleClass="boton" text="Destruir Lista" />
+                    <Button fx:id="goAgregarLibroInicio" layoutX="43.0" layoutY="268.0" mnemonicParsing="false" onAction="#onGoAgregarLibroInicio" prefHeight="40.0" prefWidth="199.0" text="Agregar al Inicio" />
+                    <Button fx:id="goAgregarLibroFinal" layoutX="43.0" layoutY="375.0" mnemonicParsing="false" onAction="#OnGoAgregarLibroFinal" prefHeight="40.0" prefWidth="199.0" text="Agregar al Final" />
+                    <Button fx:id="goAgregarLibroPosicion" layoutX="43.0" layoutY="491.0" mnemonicParsing="false" onAction="#OnGoAgregarLibroPosicion" prefHeight="40.0" prefWidth="199.0" text="Agregar en Posición" />
+                    <Button fx:id="salir" layoutX="1003.0" layoutY="674.0" mnemonicParsing="false" onAction="#OnActionSalir" prefHeight="62.0" prefWidth="180.0" text="Salir" />
+                    <Button layoutX="1022.0" layoutY="268.0" onAction="#crearLista" prefHeight="40.0" prefWidth="142.0" styleClass="boton" text="Crear Lista" />
+                    <TextArea fx:id="outputArea" editable="false" layoutX="275.0" layoutY="230.0" prefHeight="335.0" prefWidth="720.0" style="-fx-font-family: 'Courier New'; -fx-font-size: 12px;" />
+                    <Label fx:id="menuTitulo" alignment="CENTER" layoutX="475.0" layoutY="41.0" prefHeight="62.0" prefWidth="343.0" text="Listas Circulares" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" underline="true">
                         <font>
                             <Font size="36.0" />
                         </font>
+                  <effect>
+                     <Lighting diffuseConstant="2.0" specularConstant="1.0" specularExponent="1.14" surfaceScale="10.0">
+                        <bumpInput>
+                           <Shadow blurType="GAUSSIAN" height="15.14" radius="20.2575" width="67.89" />
+                        </bumpInput>
+                        <light>
+                           <Light.Point>
+                              <color>
+                                 <Color red="0.6315789222717285" green="0.8421052694320679" blue="0.6877192854881287" />
+                              </color>
+                           </Light.Point>
+                        </light>
+                     </Lighting>
+                  </effect>
                     </Label>
-                    <ImageView fitHeight="114.0" fitWidth="117.0" layoutX="347.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                    <ImageView disable="true" fitHeight="103.0" fitWidth="138.0" layoutX="77.0" layoutY="134.0" opacity="0.95" pickOnBounds="true" preserveRatio="true">
                         <image>
                             <Image url="@insignia.png" />
                         </image>
+                  <effect>
+                     <InnerShadow />
+                  </effect>
                     </ImageView>
-                    <Button fx:id="goModificarLibro" layoutX="22.0" layoutY="230.0" mnemonicParsing="false" onAction="#OnGoModificarLibro" prefHeight="56.0" prefWidth="243.0" text="Modificar Libros" />
-               <Button fx:id="recorrerNodos" layoutX="780.0" layoutY="183.0" onAction="#OnRecorrerNodos" prefHeight="36.0" prefWidth="211.0" styleClass="boton" text="Recorrer Nodos" />
+                    <Button fx:id="goModificarLibro" layoutX="296.0" layoutY="582.0" mnemonicParsing="false" onAction="#OnGoModificarLibro" prefHeight="40.0" prefWidth="162.0" text="Modificar " />
+               <Button fx:id="recorrerNodos" layoutX="510.0" layoutY="582.0" onAction="#OnRecorrerNodos" prefHeight="40.0" prefWidth="162.0" styleClass="boton" text="Recorrer Nodos" />
+               <Label layoutX="552.0" layoutY="90.0" text="Cardona De luna Efrain " textFill="WHITE">
+                  <font>
+                     <Font size="18.0" />
+                  </font>
+               </Label>
                 </children>
             </Pane>
         </children>

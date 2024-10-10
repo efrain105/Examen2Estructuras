@@ -29,7 +29,7 @@ public class AgregarLibroPosicionController implements Initializable {
     @FXML
     private TextArea posicionesDisponibles;
 
-    private ListaCircularDobleLibros lista;  // Reference to the main list
+    private ListaCircularDobleLibros lista;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {}
@@ -39,7 +39,7 @@ public class AgregarLibroPosicionController implements Initializable {
     }
 
     public void setLista(ListaCircularDobleLibros lista) {
-        this.lista = lista;  // Set the shared list from MenuPrincipalController
+        this.lista = lista;
         mostrarListaNumerada();
     }
 
@@ -71,18 +71,17 @@ public class AgregarLibroPosicionController implements Initializable {
 
                 Libro nuevoLibro = new Libro(tituloLibro, autorLibro, editorialLibro);
 
-                // Add the new book at the specified position
+
                 lista.insertarEnPosicion(posicionLibro , nuevoLibro);
 
                 System.out.println("Libro agregado en posición " + (posicionLibro + 1) + ": " + nuevoLibro);
 
-                // Show an alert to notify the user
+
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Libro Agregado");
                 alert.setHeaderText(null);
                 alert.setContentText("El libro ha sido agregado en la posición " + (posicionLibro + 1) + " de la lista.");
 
-                // Wait for the user to press "OK"
                 alert.showAndWait().ifPresent(response -> {
                     if (response == ButtonType.OK) {
                         // Close the current window (AgregarLibroPosicion window)
@@ -93,7 +92,6 @@ public class AgregarLibroPosicionController implements Initializable {
                 MenuPrincipalStage menuPrincipalStage = new MenuPrincipalStage();
                 menuPrincipalStage.start(stage);
             } catch (NumberFormatException e) {
-                // Show a warning if the position is not a valid number
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Posición Inválida");
                 alert.setHeaderText(null);
@@ -101,12 +99,10 @@ public class AgregarLibroPosicionController implements Initializable {
                 alert.showAndWait();
             }
         } else {
-            // Show a warning if any fields are empty
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Campos Vacíos");
             alert.setHeaderText(null);
             alert.setContentText("Por favor, llene todos los campos antes de guardar.");
-
             alert.showAndWait();
         }
 

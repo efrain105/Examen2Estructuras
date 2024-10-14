@@ -10,14 +10,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="1045.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.cardona.estructuras.listascirculardoble.controller.ModificarLibroPosicionController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="767.0" prefWidth="1125.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.cardona.estructuras.listascirculardoble.controller.ModificarLibroPosicionController">
     <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="1045.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <children>
-            <Pane fx:id="ventanaprincipal" prefHeight="690.0" prefWidth="1045.0" stylesheets="@style.css">
+            <Pane fx:id="ventanaprincipal" prefHeight="769.0" prefWidth="1125.0" stylesheets="@style.css">
                 <children>
 
-                    <Label fx:id="menuTitulo" alignment="CENTER" layoutX="455.0" layoutY="107.0" prefHeight="43.0" prefWidth="422.0" text="Modificar Libros" textFill="WHITE" />
-                    <VBox alignment="CENTER" layoutX="22.0" layoutY="63.0" prefHeight="536.0" prefWidth="274.0" spacing="40.0">
+                    <Label fx:id="menuTitulo" alignment="CENTER" layoutX="527.0" layoutY="156.0" prefHeight="43.0" prefWidth="422.0" text="Modificar Libros" textFill="WHITE" />
+                    <VBox fx:id="voxPos" alignment="CENTER" layoutX="38.0" layoutY="102.0" prefHeight="563.0" prefWidth="302.0" spacing="40.0">
                         <children>
                      <VBox alignment="CENTER" fillWidth="false" prefHeight="52.0" prefWidth="378.0">
                         <children>
@@ -61,13 +61,13 @@
                      </VBox>
                             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
                                 <children>
-                                    <Button fx:id="modificar" contentDisplay="TOP" mnemonicParsing="false" onAction="#onModificar" prefHeight="22.0" prefWidth="108.0" text="Modificar" />
-                                    <Button fx:id="regresar" mnemonicParsing="false" onAction="#onRegresar" prefHeight="22.0" prefWidth="111.0" text="Regresar" />
+                                    <Button fx:id="modificar" contentDisplay="TOP" mnemonicParsing="false" onAction="#onModificar" prefHeight="40.0" prefWidth="119.0" text="Modificar" />
+                                    <Button fx:id="regresar" mnemonicParsing="false" onAction="#onRegresar" prefHeight="14.0" prefWidth="119.0" text="Regresar" />
                                 </children>
                             </HBox>
                         </children>
                     </VBox>
-                    <TextArea fx:id="outputArea" layoutX="319.0" layoutY="186.0" prefHeight="335.0" prefWidth="720.0" style="-fx-font-family: 'Courier New'; -fx-font-size: 12px;" />
+                    <TextArea fx:id="outputArea" layoutX="378.0" layoutY="216.0" prefHeight="335.0" prefWidth="720.0" style="-fx-font-family: 'Courier New'; -fx-font-size: 12px;" />
                 </children>
             </Pane>
         </children>

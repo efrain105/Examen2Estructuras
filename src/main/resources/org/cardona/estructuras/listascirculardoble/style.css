@@ -18,11 +18,11 @@ libroLabel.setStyle {
 "-fx-background-color: #ffffff;" + "-fx-text-fill: #031f23;" + "-fx-font-family: Arial;" + "-fx-font-size: 17px;" + "-fx-padding: 10px;" + "-fx-border-color: #659d9f;" + "-fx-border-width: 2px;" + "-fx-border-style: solid;" + "-fx-border-radius: 10px;" + "-fx-background-radius: 10px;" + "-fx-effect: dropshadow(gaussian, rgba(45, 112, 105, 0.5), 8, 0.5, 0, 0);"
 }
 
-.button, #goAgregarLibroInicio, #goAgregarLibroFinal, #goAgregarLibroPosicion, #regresar, #ok, .boton {
-    -fx-text-fill: wheat;
+.button, #goAgregarLibroInicio, #goAgregarLibroFinal, #goAgregarLibroPosicion, #guardar, #ok, .boton {
+    -fx-text-fill: #d9c9b5;
     -fx-font-size: 19px; /* Increased font size */
     -fx-font-family: 'Segoe UI'; /* More modern font */
-    -fx-background-color: #564e4e;
+    -fx-background-color: rgba(35, 35, 35, 0.78);
     -fx-border-color: #868080;
     -fx-border-width: 2px;
     -fx-border-style: solid;
@@ -35,7 +35,7 @@ libroLabel.setStyle {
     -fx-text-fill: wheat;
     -fx-font-size: 19px; /* Increased font size */
     -fx-font-family: 'Segoe UI'; /* More modern font */
-    -fx-background-color: #a84251;
+    -fx-background-color: #8f213e;
     -fx-border-color: #868080;
     -fx-border-width: 2px;
     -fx-border-style: solid;
@@ -43,6 +43,8 @@ libroLabel.setStyle {
     -fx-background-radius: 10px;
     -fx-effect: dropshadow(gaussian, rgba(208, 208, 208, 0.5), 8, 0.5, 0, 0);
 }
+
+
 
 #eliminarInicio, #eliminarFinal, #eliminarPos {
     -fx-text-fill: wheat;
@@ -68,6 +70,18 @@ libroLabel.setStyle {
     -fx-border-width: 2px;
     -fx-border-style: solid;
     -fx-effect: dropshadow(gaussian, rgb(134, 128, 128), 8, 0.5, 0, 0);
+}
+
+#voxPos {
+    -fx-text-fill: wheat;
+    -fx-font-size: 19px; /* Increased font size */
+    -fx-font-family: 'Segoe UI'; /* More modern font */
+    -fx-border-color: #868080;
+    -fx-border-width: 2px;
+    -fx-border-style: solid;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(208, 208, 208, 0.5), 8, 0.5, 0, 0);
 }
 
 /* Estilos para la opción seleccionada en el ComboBox */

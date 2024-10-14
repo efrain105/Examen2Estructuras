@@ -1,6 +1,7 @@
 package org.cardona.estructuras.listascirculardoble.modelo;
 
 public class Nodo {
+
     private Libro dato;
     private Nodo siguiente;
     private Nodo anterior;

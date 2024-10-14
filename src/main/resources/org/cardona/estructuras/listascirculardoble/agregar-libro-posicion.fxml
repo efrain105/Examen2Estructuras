@@ -10,14 +10,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="1045.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.cardona.estructuras.listascirculardoble.controller.AgregarLibroPosicionController">
-    <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="1045.0">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="880.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.cardona.estructuras.listascirculardoble.controller.AgregarLibroPosicionController">
+    <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="880.0">
         <children>
-            <Pane fx:id="ventanaprincipal" prefHeight="690.0" prefWidth="1045.0" stylesheets="@style.css">
+            <Pane fx:id="ventanaprincipal" prefHeight="647.0" prefWidth="880.0" stylesheets="@style.css">
                 <children>
 
-                    <Label fx:id="menuTitulo" alignment="CENTER" layoutX="273.0" layoutY="14.0" prefHeight="47.0" prefWidth="500.0" text="Agregar Libro en Posición" textFill="WHITE" />
-                    <VBox alignment="CENTER" layoutX="117.0" layoutY="103.0" prefHeight="536.0" prefWidth="274.0" spacing="40.0">
+                    <Label fx:id="menuTitulo" alignment="CENTER" layoutX="357.0" layoutY="76.0" prefHeight="47.0" prefWidth="500.0" text="Agregar Libro en Posición" textFill="WHITE" />
+                    <VBox fx:id="voxPos" alignment="CENTER" layoutX="61.0" layoutY="67.0" prefHeight="536.0" prefWidth="274.0" spacing="40.0">
                         <children>
                             <VBox alignment="CENTER" fillWidth="false" prefHeight="52.0" prefWidth="378.0">
                                 <children>
@@ -67,8 +67,8 @@
                             </HBox>
                         </children>
                     </VBox>
-                    <TextArea fx:id="posicionesDisponibles" layoutX="542.0" layoutY="229.0" prefHeight="284.0" prefWidth="422.0" />
-               <Label layoutX="535.0" layoutY="161.0" prefHeight="43.0" prefWidth="436.0" text="Posiciones dispobles, el libro tomara la posicion que escojas" textFill="#929a24">
+                    <TextArea fx:id="posicionesDisponibles" layoutX="461.0" layoutY="174.0" prefHeight="261.0" prefWidth="293.0" />
+               <Label layoutX="389.0" layoutY="123.0" prefHeight="43.0" prefWidth="436.0" text="Posiciones dispobles, el libro tomara la posicion que escojas" textFill="#929a24">
                   <font>
                      <Font size="16.0" />
                   </font>

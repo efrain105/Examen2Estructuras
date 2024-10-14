@@ -9,14 +9,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="673.0" prefWidth="648.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.cardona.estructuras.listascirculardoble.controller.AgregarLibroFinalController">
-    <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="648.0">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="554.0" prefWidth="386.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.cardona.estructuras.listascirculardoble.controller.AgregarLibroFinalController">
+    <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="554.0" prefWidth="392.0">
         <children>
-            <Pane fx:id="ventanaprincipal" prefHeight="689.0" prefWidth="312.0" stylesheets="@style.css">
+            <Pane fx:id="ventanaprincipal" prefHeight="675.0" prefWidth="648.0" stylesheets="@style.css">
                 <children>
 
-                    <Label fx:id="menuTitulo" alignment="CENTER" layoutX="113.0" layoutY="25.0" prefHeight="43.0" prefWidth="422.0" text="Agregar Libro al Inicio" textFill="WHITE" />
-                    <VBox alignment="CENTER" layoutX="86.0" layoutY="96.0" prefHeight="616.0" prefWidth="476.0" spacing="40.0">
+                    <Label fx:id="menuTitulo" alignment="CENTER" layoutX="-15.0" layoutY="4.0" prefHeight="43.0" prefWidth="422.0" text="Agregar Libro al Final" textFill="WHITE" />
+                    <VBox alignment="CENTER" layoutX="17.0" layoutY="47.0" prefHeight="506.0" prefWidth="358.0" spacing="40.0">
                         <children>
                             <VBox alignment="CENTER" fillWidth="false" prefHeight="58.0" prefWidth="260.0">
                                 <children>

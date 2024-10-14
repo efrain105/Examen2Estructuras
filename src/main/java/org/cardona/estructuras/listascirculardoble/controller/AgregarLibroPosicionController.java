@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.cardona.estructuras.listascirculardoble.modelo.Libro;
 import org.cardona.estructuras.listascirculardoble.modelo.ListaCircularDobleLibros;
@@ -12,6 +13,7 @@ import org.cardona.estructuras.listascirculardoble.modelo.Nodo;
 import org.cardona.estructuras.listascirculardoble.stages.MenuPrincipalStage;
 
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class AgregarLibroPosicionController implements Initializable {
@@ -25,6 +27,7 @@ public class AgregarLibroPosicionController implements Initializable {
     public Button guardar;
     public Button regresar;
     public TextArea outputArea;
+    public VBox voxPos;
     private Stage stage;
     @FXML
     private TextArea posicionesDisponibles;
@@ -69,13 +72,18 @@ public class AgregarLibroPosicionController implements Initializable {
             try {
                 int posicionLibro = Integer.parseInt(posicionTexto)-1;
 
+                if (posicionLibro < 0 || posicionLibro > lista.size()) {
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("Posición Inválida");
+                    alert.setHeaderText(null);
+                    alert.setContentText("La posición no puede ser menor a 1 o mayor al tamaño de la lista.");
+                    alert.showAndWait();
+                    return;
+                }
                 Libro nuevoLibro = new Libro(tituloLibro, autorLibro, editorialLibro);
 
 
                 lista.insertarEnPosicion(posicionLibro , nuevoLibro);
-
-                System.out.println("Libro agregado en posición " + (posicionLibro + 1) + ": " + nuevoLibro);
-
 
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Libro Agregado");
@@ -115,5 +123,35 @@ public class AgregarLibroPosicionController implements Initializable {
         menuPrincipalStage.start(stage);
     }
 
+    private int validarIndice(int tamanoLista) {
+        int index = -1;
+        while (index < 1 || index > tamanoLista) {
+            if (index != -1) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Índice no válido");
+                alert.setHeaderText(null);
+                alert.setContentText("El índice no puede ser menor a 1 o mayor al tamaño de la lista.");
+                alert.showAndWait();
+            }
 
+            TextInputDialog dialog = new TextInputDialog();
+            dialog.setTitle("Índice");
+            dialog.setHeaderText(null);
+            dialog.setContentText("Ingrese el índice:");
+            Optional<String> result = dialog.showAndWait();
+            if (result.isPresent() && result.get().matches("\\d+")) {
+                index = Integer.parseInt(result.get());
+            } else if (!result.isPresent()) {
+                // Si se preciona cancel retorna -1 y sales del método
+                return -1;
+            } else {
+                Alert invalidInputAlert = new Alert(Alert.AlertType.WARNING);
+                invalidInputAlert.setTitle("Entrada no válida");
+                invalidInputAlert.setHeaderText(null);
+                invalidInputAlert.setContentText("Por favor, ingrese un número válido.");
+                invalidInputAlert.showAndWait();
+            }
+        }
+        return index;
+    }
 }

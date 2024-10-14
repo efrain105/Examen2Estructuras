@@ -20,18 +20,19 @@ import java.util.ResourceBundle;
 public class MenuPrincipalController implements Initializable {
     private static ListaCircularDobleLibros lista = null;
 
-
     @FXML
     public Pane ventanaprincipal;
     public Button salir;
     public Label menuTitulo;
-
     public Button goAgregarLibroInicio;
     public Button goAgregarLibroFinal;
     public Button goAgregarLibroPosicion;
     public TextArea outputArea;
     public Button goModificarLibro;
     public Button recorrerNodos;
+    public Button eliminarInicio;
+    public Button eliminarFinal;
+    public Button eliminarPos;
     private Stage stage;
 
     @Override
@@ -171,17 +172,8 @@ public class MenuPrincipalController implements Initializable {
             alert.setContentText("La lista aun no ha sido creada.");
             alert.showAndWait();
             return;
-        } else {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/cardona/estructuras/listascirculardoble/modificar-libro-posicion.fxml"));
-            Parent root = loader.load();
-
-            ModificarLibroPosicionController modificarLibroPosicionController = loader.getController();
-            modificarLibroPosicionController.setLista(lista);  // Pass the existing list to the new controller
-            Stage stage = new Stage();
-            modificarLibroPosicionController.setStage(stage);
-            stage.setScene(new Scene(root));
-            stage.show();
         }
+
         if (lista.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Lista vacía");
@@ -190,7 +182,18 @@ public class MenuPrincipalController implements Initializable {
             alert.showAndWait();
             return;
         }
-        stage.close();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/cardona/estructuras/listascirculardoble/modificar-libro-posicion.fxml"));
+            Parent root = loader.load();
+            ModificarLibroPosicionController modificarLibroPosicionController = loader.getController();
+            modificarLibroPosicionController.setLista(lista);  // Pass the existing list to the new controller
+            Stage stage = new Stage();
+            modificarLibroPosicionController.setStage(stage);
+            stage.setScene(new Scene(root));
+            stage.show();
+
+
+            this.stage.close();
     }
     // Mostrar lista de libros
     @FXML
@@ -313,6 +316,9 @@ public class MenuPrincipalController implements Initializable {
             lista = null;
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Lista destruida");
+            alert.setWidth(300);
+            alert.setHeight(150);
+            alert.setHeaderText(null);
             alert.setContentText("La lista fue destruida.");
             alert.showAndWait();
             mostrarLista();

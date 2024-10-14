@@ -11,7 +11,6 @@ import org.cardona.estructuras.listascirculardoble.modelo.Nodo;
 import org.cardona.estructuras.listascirculardoble.stages.MenuPrincipalStage;
 
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class RecorrerNodosController implements Initializable {
@@ -26,21 +25,24 @@ public class RecorrerNodosController implements Initializable {
     public Button todos;
     public FlowPane flowPaneLibros;
     private Stage stage;
-
+    private int contador = 0;
     private ListaCircularDobleLibros lista;  // Referencia a la lista compartida
     private Nodo nodoActual;  // para recorrer la lista
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
     }
 
     public void setLista(ListaCircularDobleLibros lista) {
         this.lista = lista;
         this.nodoActual = lista.primer();  // Empezar por el primer nodo, especificamente el nodo cabeza
+        this.contador = 1;
         mostrarNodoActual();
     }
 
     public void onRegresar(ActionEvent actionEvent) throws Exception {
+        contador = 0;
         stage.close();
         MenuPrincipalStage menuPrincipalStage = new MenuPrincipalStage();
         menuPrincipalStage.start(stage);
@@ -52,10 +54,15 @@ public class RecorrerNodosController implements Initializable {
 
     public void OnPrimero(ActionEvent actionEvent) {
         nodoActual = lista.primer();
+        contador = 1;
         mostrarNodoActual();
     }
 
     public void OnSiguiente(ActionEvent actionEvent) {
+        if (contador == lista.obtenerLibros().length) {
+            contador = 0;
+        }
+        contador++;
         if (nodoActual != null) {
             nodoActual = lista.siguiente(nodoActual);
             mostrarNodoActual();
@@ -63,6 +70,10 @@ public class RecorrerNodosController implements Initializable {
     }
 
     public void OnAnterior(ActionEvent actionEvent) {
+        if (contador == 1) {
+            contador = lista.obtenerLibros().length + 1;
+        }
+        contador--;
         if (nodoActual != null) {
             nodoActual = lista.anterior(nodoActual);
             mostrarNodoActual();
@@ -70,6 +81,7 @@ public class RecorrerNodosController implements Initializable {
     }
 
     public void OnUltimo(ActionEvent actionEvent) {
+        contador = lista.obtenerLibros().length;
         nodoActual = lista.ultimo();
         mostrarNodoActual();
     }
@@ -78,12 +90,12 @@ public class RecorrerNodosController implements Initializable {
         mostrarTodosLosLibros();
     }
 
-
     private void mostrarTodosLosLibros() {
-        List<Libro> libros = lista.obtenerLibros();
+        Libro[] libros = lista.obtenerLibros();
         flowPaneLibros.getChildren().clear();
+        int contadorTodos = 1;
         for (Libro libro : libros) {
-            Label libroLabel = new Label("Título: " + libro.getTitulo() + "\nAutor: " + libro.getAutor() + "\nEditorial: " + libro.getEditorial());
+            Label libroLabel = new Label(contadorTodos + ". Título: " + libro.getTitulo() + "\nAutor: " + libro.getAutor() + "\nEditorial: " + libro.getEditorial());
             libroLabel.setStyle(
                     "-fx-background-color: #ffffff;" +
                             "-fx-text-fill: #031f23;" +
@@ -98,6 +110,7 @@ public class RecorrerNodosController implements Initializable {
                             "-fx-effect: dropshadow(gaussian, rgba(45, 112, 105, 0.5), 8, 0.5, 0, 0);"
             );
             flowPaneLibros.getChildren().add(libroLabel);
+            contadorTodos++;
         }
     }
 
@@ -105,7 +118,7 @@ public class RecorrerNodosController implements Initializable {
         flowPaneLibros.getChildren().clear();
         if (nodoActual != null) {
             Libro libro = nodoActual.getDato();
-            Label libroLabel = new Label("Título: " + libro.getTitulo() + "\nAutor: " + libro.getAutor() + "\nEditorial: " + libro.getEditorial());
+            Label libroLabel = new Label("Posicion: '" + contador + "' en la lista" + "\nTítulo: " + libro.getTitulo() + "\nAutor: " + libro.getAutor() + "\nEditorial: " + libro.getEditorial());
             libroLabel.setStyle(
                     "-fx-background-color: #ffffff;" +
                             "-fx-text-fill: #031f23;" +
@@ -123,4 +136,3 @@ public class RecorrerNodosController implements Initializable {
         }
     }
 }
-

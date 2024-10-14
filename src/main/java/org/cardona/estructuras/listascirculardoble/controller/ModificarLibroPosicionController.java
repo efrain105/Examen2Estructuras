@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.cardona.estructuras.listascirculardoble.modelo.Libro;
 import org.cardona.estructuras.listascirculardoble.modelo.ListaCircularDobleLibros;
@@ -25,6 +26,7 @@ public class ModificarLibroPosicionController implements Initializable {
     public Button regresar;
     public TextArea outputArea;
     public Button modificar;
+    public VBox voxPos;
     private Stage stage;
     @FXML
     private TextArea posicionesDisponibles;

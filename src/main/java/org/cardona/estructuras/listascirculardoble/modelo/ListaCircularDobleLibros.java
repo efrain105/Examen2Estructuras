@@ -1,8 +1,4 @@
 package org.cardona.estructuras.listascirculardoble.modelo;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class ListaCircularDobleLibros {
     private Nodo primero;
     private Nodo ultimo;
@@ -209,18 +205,19 @@ public class ListaCircularDobleLibros {
         return ultimo;
     }
 
-    public List<Libro> obtenerLibros() {
-        List<Libro> libros = new ArrayList<>();
-        if (primero == null) {
-            return libros;
-        }
-        Nodo actual = primero;
-        do {
-            libros.add(actual.getDato());
-            actual = actual.getSiguiente();
-        } while (actual != primero);
-        return libros;
+   public Libro[] obtenerLibros() {
+    if (primero == null) {
+        return new Libro[0];
     }
+    Libro[] libros = new Libro[tamanio];
+    Nodo actual = primero;
+    int index = 0;
+    do {
+        libros[index++] = actual.getDato();
+        actual = actual.getSiguiente();
+    } while (actual != primero);
+    return libros;
+}
 
 }
 

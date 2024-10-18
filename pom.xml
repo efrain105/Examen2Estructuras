@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.cardona.estructuras</groupId>
-    <artifactId>ListasCircularDoble</artifactId>
+    <artifactId>Examen2Estructuras</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>ListasCircularDoble</name>
+    <name>Examen2Estructuras</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -117,7 +117,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                org.cardona.estructuras.listascirculardoble/org.cardona.estructuras.listascirculardoble.HelloApplication
+                                org.cardona.estructuras/org.cardona.estructuras.HelloApplication
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

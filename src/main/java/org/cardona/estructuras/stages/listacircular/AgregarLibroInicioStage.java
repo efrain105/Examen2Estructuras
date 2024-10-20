@@ -14,7 +14,7 @@ public class AgregarLibroInicioStage extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         this.primaryStage = primaryStage;
-        FXMLLoader fxmlLoader = new FXMLLoader(AgregarLibroInicioController.class.getResource("/org/cardona/estructuras/agregar-libro-inicio.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(AgregarLibroInicioController.class.getResource("/org/cardona/estructuras/listasV/agregar-libro-inicio.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         AgregarLibroInicioController controller = fxmlLoader.getController();
         controller.setStage(primaryStage);

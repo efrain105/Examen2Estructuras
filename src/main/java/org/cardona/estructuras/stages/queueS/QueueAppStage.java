@@ -1,36 +1,29 @@
-package org.cardona.estructuras.stages.listacircular;
+package org.cardona.estructuras.stages.queueS;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.cardona.estructuras.controller.listacircularc.ListaCircularAppController;
-import org.cardona.estructuras.controller.listacircularc.RecorrerNodosController;
 
 import java.util.Objects;
 
-public class RecorrerNodosStage extends Application {
+public class QueueAppStage extends Application {
     private Stage primaryStage;
-    private ListaCircularAppController controller;
-
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         this.primaryStage = primaryStage;
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/cardona/estructuras/listasV/recorrer-nodos.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/cardona/estructuras/pilasQueueV/pila-view.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
-        RecorrerNodosController controller = fxmlLoader.getController();
-        controller.setStage(primaryStage);
+        primaryStage.setTitle("Gestión de Pila");
         primaryStage.show();
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/org/cardona/estructuras/style.css")).toExternalForm());
     }
 
-
-
-    public static void lanzarApp() {
-        launch();
+    public static void main(String[] args) {
+        launch(args);
     }
 }

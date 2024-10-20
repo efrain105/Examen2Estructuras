@@ -15,7 +15,7 @@ public class AgregarLibroFinalStage extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         this.primaryStage = primaryStage;
-        FXMLLoader fxmlLoader = new FXMLLoader(AgregarLibroInicioController.class.getResource("/org/cardona/estructuras/agregar-libro-final.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(AgregarLibroInicioController.class.getResource("/org/cardona/estructuras/listasV/agregar-libro-final.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         AgregarLibroFinalController controller = fxmlLoader.getController();
         controller.setStage(primaryStage);

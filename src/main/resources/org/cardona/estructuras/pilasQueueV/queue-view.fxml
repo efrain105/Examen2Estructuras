@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="511.0" prefWidth="785.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.cardona.estructuras.controller.queueC.QueueController">
+
+    <VBox fx:id="box" prefHeight="511.0" prefWidth="785.0">
+        <Pane prefHeight="519.0" prefWidth="785.0">
+            <children>
+                <Label fx:id="queueEstadoLabel" layoutX="153.0" layoutY="75.0" styleClass="title" text="Gestión de Queue's" />
+
+                <TextField fx:id="urlTextField" layoutX="27.0" layoutY="175.0" prefHeight="35.0" prefWidth="330.0" promptText="Ingrese URL a encolar" />
+                <Button fx:id="encolarBtn" layoutX="58.0" layoutY="223.0" onAction="#encolar" prefHeight="37.0" prefWidth="124.0" text="Encolar" />
+
+                <Button fx:id="desencolarBtn" layoutX="199.0" layoutY="223.0" onAction="#desencolar" prefHeight="37.0" prefWidth="124.0" text="Desencolar" />
+                <Button fx:id="vaciarQueueBtn" layoutX="581.0" layoutY="126.0" onAction="#vaciarQueue" prefHeight="37.0" prefWidth="166.0" text="Vaciar Queue" />
+
+                <Label fx:id="cimaLabel" layoutX="58.0" layoutY="406.0" text="Frente: " />
+                <Label fx:id="tamanoLabel" layoutX="58.0" layoutY="342.0" text="Tamaño: " />
+
+                <ImageView disable="true" fitHeight="103.0" fitWidth="138.0" layoutX="24.0" layoutY="23.0" opacity="0.95" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../insignia.png" />
+                    </image>
+                    <effect>
+                        <InnerShadow />
+                    </effect>
+                </ImageView>
+
+                <Button fx:id="crearQueueBtn" layoutX="581.0" layoutY="447.0" onAction="#crearQueue" prefHeight="37.0" prefWidth="166.0" text="Crear Queue" />
+                <Button fx:id="destruirQueueBtn" layoutX="581.0" layoutY="29.0" onAction="#destruirQueue" prefHeight="37.0" prefWidth="166.0" text="Destruir Queue" />
+            </children>
+        </Pane>
+    </VBox>
+
+</AnchorPane>

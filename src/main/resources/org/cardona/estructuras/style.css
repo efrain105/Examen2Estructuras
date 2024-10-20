@@ -7,6 +7,11 @@
     -fx-color-1:#1976D2;
 }
 
+#box {
+    -fx-border-radius: 10px;
+    -fx-border-color: #baec42;
+}
+
 #origen, #destino {
     -fx-background-color: #ffffff;
     -fx-border-radius: 10px;

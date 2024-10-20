@@ -13,7 +13,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="767.0" prefWidth="1125.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.cardona.estructuras.controller.listacircularc.ModificarLibroPosicionController">
     <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="1045.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <children>
-            <Pane fx:id="ventanaprincipal" prefHeight="769.0" prefWidth="1125.0" stylesheets="@style.css">
+            <Pane fx:id="ventanaprincipal" prefHeight="769.0" prefWidth="1125.0" stylesheets="@../style.css">
                 <children>
 
                     <Label fx:id="menuTitulo" alignment="CENTER" layoutX="527.0" layoutY="156.0" prefHeight="43.0" prefWidth="422.0" text="Modificar Libros" textFill="WHITE" />

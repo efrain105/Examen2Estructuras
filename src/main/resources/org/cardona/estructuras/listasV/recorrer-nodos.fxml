@@ -11,7 +11,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.cardona.estructuras.controller.listacircularc.RecorrerNodosController">
     <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0">
         <children>
-            <Pane fx:id="ventanaprincipal" prefHeight="600.0" prefWidth="1000.0" stylesheets="@style.css">
+            <Pane fx:id="ventanaprincipal" prefHeight="600.0" prefWidth="1000.0" stylesheets="@../style.css">
                 <children>
 
                     <Label fx:id="menuTitulo" alignment="CENTER" layoutX="295.0" layoutY="28.0" prefHeight="43.0" prefWidth="422.0" text="Recorrer Nodos" textFill="WHITE" />

@@ -51,41 +51,6 @@ public class ListaCircularAppController implements Initializable {
         stage = primaryStage;
     }
 
-    private int validarIndice(int tamanoLista) {
-        int index = -1;
-        while (index < 1 || index > tamanoLista) {
-            if (index != -1) {
-                showWarningAlert("Índice no válido", "El índice debe ser un número entero entre 1 y " + tamanoLista + ".");
-            }
-
-            TextInputDialog dialog = new TextInputDialog();
-            dialog.setTitle("Índice");
-            dialog.setHeaderText(null);
-            dialog.setContentText("Ingrese el índice:");
-            Optional<String> result = dialog.showAndWait();
-            if (result.isPresent() && result.get().matches("\\d+")) {
-                index = Integer.parseInt(result.get());
-            } else if (!result.isPresent()) {
-                // Si se preciona cancel retorna -1 y sales del método
-                return -1;
-            } else {
-                showWarningAlert("Índice no válido", "El índice debe ser un número entero.");
-
-            }
-        }
-        return index;
-    }
-
-    private void showWarningAlert(String title, String content) {
-        Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(content);
-        alert.getDialogPane().getStylesheets().add(getClass().getResource("/org/cardona/estructuras/style.css").toExternalForm());
-        alert.getDialogPane().getStyleClass().add("custom-alert");
-        alert.showAndWait();
-    }
-
     @FXML
     public void onGoAgregarLibroInicio(ActionEvent actionEvent) throws Exception {
         if (lista == null) {
@@ -93,7 +58,7 @@ public class ListaCircularAppController implements Initializable {
             return;
         }
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/cardona/estructuras/agregar-libro-inicio.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/cardona/estructuras/listasV/agregar-libro-inicio.fxml"));
         Parent root = loader.load();
 
         AgregarLibroInicioController agregarLibroInicioController = loader.getController();
@@ -119,7 +84,7 @@ public class ListaCircularAppController implements Initializable {
             return;
         }
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/cardona/estructuras/agregar-libro-final.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/cardona/estructuras/listasV/agregar-libro-final.fxml"));
         Parent root = loader.load();
 
         AgregarLibroFinalController agregarLibroFinalController = loader.getController();
@@ -139,7 +104,7 @@ public class ListaCircularAppController implements Initializable {
             return;
         }
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/cardona/estructuras/agregar-libro-posicion.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/cardona/estructuras/listasV/agregar-libro-posicion.fxml"));
         Parent root = loader.load();
 
         AgregarLibroPosicionController agregarLibroPosicionController = loader.getController();
@@ -181,7 +146,7 @@ public class ListaCircularAppController implements Initializable {
             return;
         }
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/cardona/estructuras/modificar-libro-posicion.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/cardona/estructuras/listasV/modificar-libro-posicion.fxml"));
         Parent root = loader.load();
         ModificarLibroPosicionController modificarLibroPosicionController = loader.getController();
         modificarLibroPosicionController.setListaCircular(lista);
@@ -266,7 +231,7 @@ public class ListaCircularAppController implements Initializable {
         lista.vaciarLista();
         mostrarLista();
     }
-    
+
 
     @FXML
     private void destruirLista() {
@@ -283,7 +248,7 @@ public class ListaCircularAppController implements Initializable {
             showWarningAlert("Lista no creada", "La lista no ha sido creada.");
             return;
         } else {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/cardona/estructuras/recorrer-nodos.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/cardona/estructuras/listasV/recorrer-nodos.fxml"));
             Parent root = loader.load();
             RecorrerNodosController recorrerNodosController = loader.getController();
             recorrerNodosController.setLista(lista);
@@ -298,6 +263,41 @@ public class ListaCircularAppController implements Initializable {
             return;
         }
 
+    }
+
+    private int validarIndice(int tamanoLista) {
+        int index = -1;
+        while (index < 1 || index > tamanoLista) {
+            if (index != -1) {
+                showWarningAlert("Índice no válido", "El índice debe ser un número entero entre 1 y " + tamanoLista + ".");
+            }
+
+            TextInputDialog dialog = new TextInputDialog();
+            dialog.setTitle("Índice");
+            dialog.setHeaderText(null);
+            dialog.setContentText("Ingrese el índice:");
+            Optional<String> result = dialog.showAndWait();
+            if (result.isPresent() && result.get().matches("\\d+")) {
+                index = Integer.parseInt(result.get());
+            } else if (!result.isPresent()) {
+                // Si se preciona cancel retorna -1 y sales del método
+                return -1;
+            } else {
+                showWarningAlert("Índice no válido", "El índice debe ser un número entero.");
+
+            }
+        }
+        return index;
+    }
+
+    private void showWarningAlert(String title, String content) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.getDialogPane().getStylesheets().add(getClass().getResource("/org/cardona/estructuras/style.css").toExternalForm());
+        alert.getDialogPane().getStyleClass().add("custom-alert");
+        alert.showAndWait();
     }
 }
 

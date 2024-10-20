@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.cardona.estructuras.controller.arrayC.ArrayController">
+    <VBox fx:id="box" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1200.0">
+        <children>
+            <Pane fx:id="ventanaprincipal" prefHeight="755.0" prefWidth="1200.0" stylesheets="@../style.css">
+                <children>
+                    <Button fx:id="goEliminarVehiculo" layoutX="268.0" layoutY="173.0" onAction="#onEliminarVechiculo" prefHeight="40.0" prefWidth="162.0" styleClass="boton" text="Eliminar Vehiculos" />
+                    <Button fx:id="goAgregarCoche" layoutX="13.0" layoutY="491.0" onAction="#onGoAgregarCoche" prefHeight="40.0" prefWidth="230.0" styleClass="boton" text="Agregar Coche" />
+                    <Button fx:id="goVaciarEstacionamiento" layoutX="521.0" layoutY="173.0" onAction="#onGoVaciarEstacionamiento" prefHeight="40.0" prefWidth="199.0" styleClass="boton" text="Vaciar Estacionamiento" />
+                    <Button fx:id="goCerrarEstacionamiento" layoutX="791.0" layoutY="173.0" onAction="#onGoCerrarEstacionamiento" prefHeight="40.0" prefWidth="212.0" styleClass="boton" text="Cerrar Estacionamiento" />
+                    <Button fx:id="goAgregarVechiculo" layoutX="13.0" layoutY="255.0" mnemonicParsing="false" onAction="#onGoAgregarVechiculo" prefHeight="40.0" prefWidth="230.0" text="Agregar Vehiculo Generico" />
+                    <Button fx:id="goAgregarMoto" layoutX="13.0" layoutY="335.0" mnemonicParsing="false" onAction="#OnGoAgregarMoto" prefHeight="40.0" prefWidth="230.0" text="Agregar Moto" />
+                    <Button fx:id="goAgregarCamion" layoutX="13.0" layoutY="415.0" mnemonicParsing="false" onAction="#OnGoAgregarCamion" prefHeight="40.0" prefWidth="230.0" text="Agregar Camion" />
+                    <Button fx:id="goCrearEstacionamiento" layoutX="268.0" layoutY="579.0" onAction="#onGoCrearEstacionamiento" prefHeight="40.0" prefWidth="230.0" styleClass="boton" text="Crear un estacionamiento" />
+                    <TextArea fx:id="outputArea" editable="false" layoutX="255.0" layoutY="230.0" prefHeight="335.0" prefWidth="927.0" style="-fx-font-family: 'Courier New'; -fx-font-size: 12px;" />
+                    <Label fx:id="menuTitulo" alignment="CENTER" layoutX="475.0" layoutY="41.0" prefHeight="62.0" prefWidth="343.0" text="Listas Circulares" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
+                    </Label>
+                    <ImageView disable="true" fitHeight="103.0" fitWidth="138.0" layoutX="62.0" layoutY="142.0" opacity="0.95" pickOnBounds="true" preserveRatio="true" styleClass="image-button">
+                        <image>
+                            <Image url="@../insignia.png" />
+                        </image>
+                        <effect>
+                            <InnerShadow />
+                        </effect>
+                    </ImageView>
+                    <Button fx:id="goModificarVehiculo" layoutX="791.0" layoutY="579.0" mnemonicParsing="false" onAction="#onGoModificarVehiculo" prefHeight="40.0" prefWidth="162.0" text="Modificar " />
+                    <Label layoutX="552.0" layoutY="90.0" text="Cardona De luna Efrain " textFill="WHITE">
+                        <font>
+                            <Font size="18.0" />
+                        </font>
+                    </Label>
+                </children>
+            </Pane>
+        </children>
+    </VBox>
+</AnchorPane>

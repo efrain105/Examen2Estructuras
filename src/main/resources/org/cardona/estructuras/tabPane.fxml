@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.StackPane?>
+
+<TabPane fx:id="tabPane" stylesheets="@style.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.cardona.estructuras.controller.TabPaneController">
+  <tabs>
+    <Tab fx:id="paneCirculares" text="Listas Circulares Dobles">
+      <content>
+        <StackPane />
+      </content>
+    </Tab>
+    <Tab fx:id="listasSimples" text="Listas Simples">
+      <content>
+        <StackPane />
+      </content>
+    </Tab>
+    <Tab fx:id="listasDobles" text="Listas Dobles">
+      <content>
+        <StackPane />
+      </content>
+    </Tab>
+    <Tab fx:id="pilas" text="Pilas">
+      <content>
+        <StackPane />
+      </content>
+    </Tab>
+    <Tab fx:id="queue" text="Queue's">
+      <content>
+        <StackPane />
+      </content>
+    </Tab>
+      <Tab fx:id="array" text="Array's">
+         <content>
+            <StackPane />
+         </content>
+      </Tab>
+  </tabs>
+</TabPane>

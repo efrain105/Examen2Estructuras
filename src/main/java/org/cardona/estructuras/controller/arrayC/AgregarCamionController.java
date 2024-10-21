@@ -27,7 +27,7 @@ public class AgregarCamionController implements Initializable {
     public Button guardar;
     public Button regresar;
     private Stage stage;
-    private int slotIndexToController;
+    private int slotIndexToController = 50;
 
 
     private Vehiculo[] vehiculos;
@@ -41,9 +41,11 @@ public class AgregarCamionController implements Initializable {
     public void setArrayVehiculosController(ArrayController arrayVehiculosController) {
         this.arrayVehiculosController = arrayVehiculosController;
     }
+
     public void setSlotIndex(int slotIndex) {
         this.slotIndexToController = slotIndex;
     }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
     }
@@ -111,9 +113,11 @@ public class AgregarCamionController implements Initializable {
         if (arrayVehiculosController != null) {
             arrayVehiculosController.mostrarLista();
         }
+        slotIndexToController = 50;
 
         stage.close();
     }
+
     private void showWarningAlert(String title, String content) {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle(title);

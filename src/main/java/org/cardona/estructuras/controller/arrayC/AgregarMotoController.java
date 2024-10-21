@@ -32,7 +32,7 @@ public class AgregarMotoController implements Initializable {
 
     private ArrayController arrayVehiculosController;
 
-    private int slotIndexToController;
+    private int slotIndexToController = 50;
 
     public void setSlotIndex(int slotIndex) {
         this.slotIndexToController = slotIndex;
@@ -88,13 +88,9 @@ public class AgregarMotoController implements Initializable {
         }
         int slotIndex = Integer.parseInt(slotEstacionamiento) - 1;
 
-        System.out.println("slotIndex: " + slotIndex);
-        System.out.println("slotIndexToController: " + slotIndexToController);
         if (slotIndex == (slotIndexToController)) {
-            System.out.println("feliz");
             Vehiculo nuevaMoto = new Moto(marcaVehiculo, modeloVehiculo, Integer.parseInt(anioVehiculo), matriculaVehiculo, numeroMotorVehiculo, colorVehiculo, duenioVehiculo, Integer.parseInt(cilindradaMoto), tieneMaleteroMoto);
             vehiculos[slotIndex] = nuevaMoto;
-            slotIndexToController = 50;
         } else {
             if (!isValidSlot(slotEstacionamiento)) {
                 showWarningAlert("Datos inválidos", "El slot de estacionamiento no es válido.");
@@ -103,12 +99,13 @@ public class AgregarMotoController implements Initializable {
             Vehiculo nuevaMoto = new Moto(marcaVehiculo, modeloVehiculo, Integer.parseInt(anioVehiculo), matriculaVehiculo, numeroMotorVehiculo, colorVehiculo, duenioVehiculo, Integer.parseInt(cilindradaMoto), tieneMaleteroMoto);
             vehiculos[slotIndex] = nuevaMoto;
         }
-
+        slotIndexToController = 50;
 
         showWarningAlert("Éxito", "La moto ha sido agregada exitosamente.");
         if (arrayVehiculosController != null) {
             arrayVehiculosController.mostrarLista();
         }
+
 
         stage.close();
     }

@@ -7,6 +7,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import org.cardona.estructuras.modelo.array.vehiculos.Vehiculo;
 import org.cardona.estructuras.modelo.array.vehiculos.coches.Coche;
+import org.cardona.estructuras.modelo.array.vehiculos.motos.Moto;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -33,7 +34,7 @@ public class AgregarCocheController implements Initializable {
     private ArrayController arrayVehiculosController;
 
 
-    private int slotIndexToController;
+    private int slotIndexToController = 50;
 
     public void setSlotIndex(int slotIndex) {
         this.slotIndexToController = slotIndex;
@@ -93,10 +94,11 @@ public class AgregarCocheController implements Initializable {
             showWarningAlert("Datos inválidos", "El número de puertas no es válido.");
             return;
         }
-        int slotIndex = Integer.parseInt(slotEstacionamiento) - 1;
 
-        if (slotIndex == slotIndexToController) {
-            Vehiculo nuevoCoche = new Coche(marcaVehiculo, modeloVehiculo, Integer.parseInt(anioVehiculo), matriculaVehiculo, numeroMotorVehiculo, colorVehiculo, duenioVehiculo, tipoCarroceriaCoche, Integer.parseInt(numeroPuertasCoche));
+        int slotIndex = Integer.parseInt(slotEstacionamiento) - 1;
+        if (slotIndex == (slotIndexToController)) {
+
+            Vehiculo  nuevoCoche = new Coche(marcaVehiculo, modeloVehiculo, Integer.parseInt(anioVehiculo), matriculaVehiculo, numeroMotorVehiculo, colorVehiculo, duenioVehiculo, tipoCarroceriaCoche, Integer.parseInt(numeroPuertasCoche));
             vehiculos[slotIndex] = nuevoCoche;
             slotIndexToController = 50;
         } else {
@@ -104,7 +106,7 @@ public class AgregarCocheController implements Initializable {
                 showWarningAlert("Datos inválidos", "El slot de estacionamiento no es válido.");
                 return;
             }
-            Vehiculo nuevoCoche = new Coche(marcaVehiculo, modeloVehiculo, Integer.parseInt(anioVehiculo), matriculaVehiculo, numeroMotorVehiculo, colorVehiculo, duenioVehiculo, tipoCarroceriaCoche, Integer.parseInt(numeroPuertasCoche));
+            Vehiculo  nuevoCoche = new Coche(marcaVehiculo, modeloVehiculo, Integer.parseInt(anioVehiculo), matriculaVehiculo, numeroMotorVehiculo, colorVehiculo, duenioVehiculo, tipoCarroceriaCoche, Integer.parseInt(numeroPuertasCoche));
             vehiculos[slotIndex] = nuevoCoche;
         }
 
@@ -112,7 +114,7 @@ public class AgregarCocheController implements Initializable {
         if (arrayVehiculosController != null) {
             arrayVehiculosController.mostrarLista();
         }
-
+        slotIndexToController = 50;
         stage.close();
     }
 
@@ -170,8 +172,8 @@ public class AgregarCocheController implements Initializable {
                 showWarningAlert("Slot ocupado", "El slot de estacionamiento ya está ocupado.");
                 return false;
             }
-            for (Vehiculo vehiculo : vehiculos) {
-                if (vehiculo == null) {
+            for (Vehiculo moto : vehiculos) {
+                if (moto == null) {
                     return true;
                 }
             }

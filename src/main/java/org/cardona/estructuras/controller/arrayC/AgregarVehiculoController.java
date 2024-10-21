@@ -36,15 +36,15 @@ public class AgregarVehiculoController implements Initializable {
 
     private ArrayController arrayVehiculosController;
 
+    private int slotIndexToController = 50;
+
 
     public void setListaVehiculos(Vehiculo[] listaVehiculos) {
         this.vehiculos = listaVehiculos;
     }
-
     public void setArrayVehiculosController(ArrayController arrayVehiculosController) {
         this.arrayVehiculosController = arrayVehiculosController;
     }
-    private int slotIndexToController;
 
     public void setSlotIndex(int slotIndex) {
         this.slotIndexToController = slotIndex;

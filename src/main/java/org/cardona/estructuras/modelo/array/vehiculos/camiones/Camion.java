@@ -55,6 +55,7 @@ public class Camion extends Vehiculo {
 
     @Override
     public String toString() {
-        return super.toString() + String.format(" | Tonelaje: %d | Número de Ejes: %d", tonelaje, numeroEjes);
+        return super.toString() + String.format("Tonelaje: %d | Número de Ejes: %d", tonelaje, numeroEjes).trim();
     }
+
 }

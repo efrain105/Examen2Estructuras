@@ -203,75 +203,78 @@ public class ArrayController implements Initializable {
         stage.show();
     }
 
-public void onGoModificarVehiculo(ActionEvent actionEvent) {
-    if (listaVehiculos == null || listaVehiculos.length == 0) {
-        showWarningAlert("Estacionamiento no creado o vacío", "El estacionamiento no ha sido creado o ya está vacío.");
-        return;
-    }
-
-    int indice = validarIndice(listaVehiculos.length);
-    if (indice == -1) {
-        return; // El usuario canceló la operación
-    }
-
-    Vehiculo vehiculo = listaVehiculos[indice - 1];
-    if (vehiculo == null) {
-        showWarningAlert("Slot vacío", "No hay vehículo en el slot especificado.");
-        return;
-    }
-
-    try {
-        Stage stage = new Stage();
-        FXMLLoader loader;
-        if (vehiculo instanceof Moto) {
-            loader = new FXMLLoader(getClass().getResource("/org/cardona/estructuras/arrayV/agregar-moto-view.fxml"));
-            Parent root = loader.load();
-            AgregarMotoController controller = loader.getController();
-            controller.setListaVehiculos(listaVehiculos);
-            controller.setArrayVehiculosController(this);
-            controller.setStage(stage);
-            controller.setSlotIndex(indice - 1); // Pass the slot index
-            controller.setVehiculo((Moto) vehiculo); // Pass the existing vehicle data
-        } else if (vehiculo instanceof Coche) {
-            loader = new FXMLLoader(getClass().getResource("/org/cardona/estructuras/arrayV/agregar-coche-view.fxml"));
-            Parent root = loader.load();
-            AgregarCocheController controller = loader.getController();
-            controller.setListaVehiculos(listaVehiculos);
-            controller.setArrayVehiculosController(this);
-            controller.setStage(stage);
-            controller.setSlotIndex(indice - 1); // Pass the slot index
-            controller.setVehiculo((Coche) vehiculo); // Pass the existing vehicle data
-            System.out.println("Este es el valor de indice: " + indice);
-        } else if (vehiculo instanceof Camion) {
-            loader = new FXMLLoader(getClass().getResource("/org/cardona/estructuras/arrayV/agregar-camion-view.fxml"));
-            Parent root = loader.load();
-            AgregarCamionController controller = loader.getController();
-            controller.setListaVehiculos(listaVehiculos);
-            controller.setArrayVehiculosController(this);
-            controller.setStage(stage);
-            controller.setSlotIndex(indice - 1); // Pass the slot index
-            controller.setVehiculo((Camion) vehiculo); // Pass the existing vehicle data
-            System.out.println("Este es el valor de indice: " + indice);
-
-        } else {
-            loader = new FXMLLoader(getClass().getResource("/org/cardona/estructuras/arrayV/agregar-vehiculo-view.fxml"));
-            Parent root = loader.load();
-            AgregarVehiculoController controller = loader.getController();
-            controller.setListaVehiculos(listaVehiculos);
-            controller.setArrayVehiculosController(this);
-            controller.setStage(stage);
-            controller.setSlotIndex(indice - 1); // Pass the slot index
-            controller.setVehiculo(vehiculo); // Pass the existing vehicle data
+    public void onGoModificarVehiculo(ActionEvent actionEvent) {
+        if (listaVehiculos == null || listaVehiculos.length == 0) {
+            showWarningAlert("Estacionamiento no creado o vacío", "El estacionamiento no ha sido creado o ya está vacío.");
+            return;
         }
 
-        Scene scene = new Scene(loader.getRoot());
-        stage.setScene(scene);
-        stage.show();
-    } catch (IOException e) {
-        e.printStackTrace();
-        showWarningAlert("Error", "No se pudo cargar la vista de modificación.");
+        int indice = validarIndice(listaVehiculos.length);
+        if (indice == -1) {
+            return; // El usuario canceló la operación
+        }
+
+        Vehiculo vehiculo = listaVehiculos[indice - 1];
+        if (vehiculo == null) {
+            showWarningAlert("Slot vacío", "No hay vehículo en el slot especificado.");
+            return;
+        }
+
+        try {
+            Stage stage = new Stage();
+            FXMLLoader loader;
+            if (vehiculo instanceof Moto) {
+                loader = new FXMLLoader(getClass().getResource("/org/cardona/estructuras/arrayV/agregar-moto-view.fxml"));
+                Parent root = loader.load();
+                AgregarMotoController controller = loader.getController();
+                controller.setListaVehiculos(listaVehiculos);
+                controller.setArrayVehiculosController(this);
+                controller.setStage(stage);
+                controller.setSlotIndex(indice - 1); // Pass the slot index
+                controller.setVehiculo((Moto) vehiculo); // Pass the existing vehicle data
+            } else if (vehiculo instanceof Coche) {
+                loader = new FXMLLoader(getClass().getResource("/org/cardona/estructuras/arrayV/agregar-coche-view.fxml"));
+                Parent root = loader.load();
+                AgregarCocheController controller = loader.getController();
+                controller.setListaVehiculos(listaVehiculos);
+                controller.setArrayVehiculosController(this);
+                controller.setStage(stage);
+                controller.setSlotIndex(indice - 1); // Pass the slot index
+                controller.setVehiculo((Coche) vehiculo); // Pass the existing vehicle data
+                System.out.println("Este es el valor de indice: " + indice);
+            } else if (vehiculo instanceof Camion) {
+                loader = new FXMLLoader(getClass().getResource("/org/cardona/estructuras/arrayV/agregar-camion-view.fxml"));
+                Parent root = loader.load();
+                AgregarCamionController controller = loader.getController();
+                controller.setListaVehiculos(listaVehiculos);
+                controller.setArrayVehiculosController(this);
+                controller.setStage(stage);
+                controller.setSlotIndex(indice - 1); // Pass the slot index
+                controller.setVehiculo((Camion) vehiculo); // Pass the existing vehicle data
+                System.out.println("Este es el valor de indice: " + indice);
+
+            } else {
+                loader = new FXMLLoader(getClass().getResource("/org/cardona/estructuras/arrayV/agregar-vehiculo-view.fxml"));
+                Parent root = loader.load();
+                AgregarVehiculoController controller = loader.getController();
+                controller.setListaVehiculos(listaVehiculos);
+                controller.setArrayVehiculosController(this);
+                controller.setStage(stage);
+                controller.setSlotIndex(indice - 1); // Pass the slot index
+                controller.setVehiculo(vehiculo); // Pass the existing vehicle data
+            }
+
+            Scene scene = new Scene(loader.getRoot());
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            showWarningAlert("Error", "No se pudo cargar la vista de modificación.");
+        }
+
     }
-}    private int validarIndice(int tamanoLista) {
+
+    private int validarIndice(int tamanoLista) {
         int index = -1;
         while (index < 1 || index > tamanoLista || listaVehiculos[index - 1] == null) {
             if (index != -1) {
@@ -356,9 +359,9 @@ public void onGoModificarVehiculo(ActionEvent actionEvent) {
     private static String mostrarEstacionamiento() {
         StringBuilder sb = new StringBuilder();
         sb.append("Estacionamiento de vehículos:\n");
-        sb.append("+------+----------------------+----------------------+----------------------+-------------------+-------------------+-------------------+------------------------------------------+\n");
-        sb.append("| Slot | Tipo                 | Dueño                | Marca                | Modelo            | Año               | Matrícula         | Detalles                                 |\n");
-        sb.append("+------+----------------------+----------------------+----------------------+-------------------+-------------------+-------------------+------------------------------------------+\n");
+        sb.append("+------+----------------------+----------------------+----------------------+-------------------+-------------------+-------------------+------------------------------------------------------------+\n");
+        sb.append("| Slot | Tipo                 | Dueño                | Marca                | Modelo            | Año               | Matrícula         | Detalles                                                   |\n");
+        sb.append("+------+----------------------+----------------------+----------------------+-------------------+-------------------+-------------------+------------------------------------------------------------+\n");
 
         for (int i = 0; i < listaVehiculos.length; i++) {
             Vehiculo vehiculo = listaVehiculos[i];
@@ -371,7 +374,7 @@ public void onGoModificarVehiculo(ActionEvent actionEvent) {
                 } else if (vehiculo instanceof Camion) {
                     tipoVehiculo = "Camión";
                 }
-                sb.append(String.format("| %-4d | %-20s | %-20s | %-20s | %-17s | %-17d | %-17s | %-40s |\n",
+                sb.append(String.format("| %-4d | %-20s | %-20s | %-20s | %-17s | %-17d | %-17s | %-58s |\n",
                         i + 1,
                         tipoVehiculo,
                         vehiculo.getDuenio() != null ? vehiculo.getDuenio() : "N/A",
@@ -379,9 +382,9 @@ public void onGoModificarVehiculo(ActionEvent actionEvent) {
                         vehiculo.getModelo(),
                         vehiculo.getAnio(),
                         vehiculo.getMatricula(),
-                        vehiculo.toString()));
+                        vehiculo.toString()));  // Utilizamos un nuevo método formateado
             } else {
-                sb.append(String.format("| %-4d | %-20s | %-20s | %-20s | %-17s | %-17s | %-17s | %-40s |\n",
+                sb.append(String.format("| %-4d | %-20s | %-20s | %-20s | %-17s | %-17s | %-17s | %-58s |\n",
                         i + 1,
                         "N/A",
                         "N/A",
@@ -393,9 +396,11 @@ public void onGoModificarVehiculo(ActionEvent actionEvent) {
             }
         }
 
-        sb.append("+------+----------------------+----------------------+----------------------+-------------------+-------------------+-------------------+------------------------------------------+\n");
+        sb.append("+------+----------------------+----------------------+----------------------+-------------------+-------------------+-------------------+------------------------------------------------------------+\n");
         return sb.toString();
     }
+
+
 
     public void setArray(Vehiculo[] arrayLista) {
         this.listaVehiculos = arrayLista;

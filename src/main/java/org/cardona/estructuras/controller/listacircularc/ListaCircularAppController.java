@@ -12,7 +12,9 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import org.cardona.estructuras.controller.AgregarLibroFinalController;
 import org.cardona.estructuras.controller.AgregarLibroPosicionController;
+import org.cardona.estructuras.controller.arrayC.AgregarMotoController;
 import org.cardona.estructuras.modelo.Libro;
+import org.cardona.estructuras.modelo.array.vehiculos.motos.Moto;
 import org.cardona.estructuras.modelo.listacircular.ListaCircularDoble;
 
 import java.io.IOException;
@@ -134,6 +136,38 @@ public class ListaCircularAppController implements Initializable {
         mostrarLista();
     }
 
+
+    @FXML
+    public void OnGoModificarLibro() throws IOException {
+        if (lista == null) {
+            showWarningAlert("La lista no existe", "La lista aun no ha sido creada.");
+            return;
+        }
+
+        if (lista.isEmpty()) {
+            showWarningAlert("Lista vacía", "La lista está vacía.");
+            return;
+        }
+
+        int indice = validarIndice(lista.size());
+        Libro libro = lista.obtenerPorPosicion(indice - 1);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/cardona/estructuras/listasV/modificar-libro-posicion.fxml"));
+        Parent root = loader.load();
+        ModificarLibroPosicionController modificarLibroPosicionController = loader.getController();
+        modificarLibroPosicionController.setListaCircular(lista);
+        modificarLibroPosicionController.setListaCircularAppController(this);
+        modificarLibroPosicionController.setStage(stage);
+        modificarLibroPosicionController.setSlotIndex(indice - 1); // Pass the slot index
+        modificarLibroPosicionController.setLibro(libro); // Pass the existing vehicle data
+        Stage stage = new Stage();
+        modificarLibroPosicionController.setStage(stage);
+        stage.setScene(new Scene(root));
+        stage.show();
+
+
+    }
+
+/*
     @FXML
     public void OnGoModificarLibro() throws IOException {
         if (lista == null) {
@@ -156,7 +190,10 @@ public class ListaCircularAppController implements Initializable {
         modificarLibroPosicionController.setStage(stage);
         stage.setScene(new Scene(root));
         stage.show();
+
+
     }
+    */
 
     @FXML
     public void mostrarLista() {
@@ -276,6 +313,8 @@ public class ListaCircularAppController implements Initializable {
             dialog.setTitle("Índice");
             dialog.setHeaderText(null);
             dialog.setContentText("Ingrese el índice:");
+            dialog.getDialogPane().getStylesheets().add(getClass().getResource("/org/cardona/estructuras/style.css").toExternalForm());
+            dialog.getDialogPane().getStyleClass().add("custom-alert");
             Optional<String> result = dialog.showAndWait();
             if (result.isPresent() && result.get().matches("\\d+")) {
                 index = Integer.parseInt(result.get());
@@ -299,5 +338,7 @@ public class ListaCircularAppController implements Initializable {
         alert.getDialogPane().getStyleClass().add("custom-alert");
         alert.showAndWait();
     }
+
+
 }
 

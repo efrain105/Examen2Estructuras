@@ -45,6 +45,7 @@ public class Coche extends Vehiculo {
 
     @Override
     public String toString() {
-        return super.toString() + String.format(" | Tipo de Carrocería: %s | Número de Puertas: %d", tipoCarroceria, numeroPuertas);
+        return super.toString() + String.format("Tipo de Carrocería: %s | Número de Puertas: %d", tipoCarroceria, numeroPuertas).trim();
     }
+
 }

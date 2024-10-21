@@ -33,6 +33,12 @@ public class ModificarLibroPosicionController implements Initializable {
     @FXML
     private TextArea posicionesDisponibles;
 
+    private int slotIndexToController;
+
+    public void setSlotIndex(int slotIndex) {
+        this.slotIndexToController = slotIndex;
+    }
+
     //Desde el menu se hace referencia a esta lista, es el mismo objeto
     private ListaCircularDoble listaCircularDoble;  // Referencia a la lista compartida
     private ListaCircularAppController listaCircularAppController;
@@ -46,18 +52,19 @@ public class ModificarLibroPosicionController implements Initializable {
     public void setListaCircularAppController(ListaCircularAppController listaCircularAppController) {
         this.listaCircularAppController = listaCircularAppController;
     }
+
     public void setListaCircular(ListaCircularDoble lista) {
         this.listaCircularDoble = lista;  // Establecer la lista compartida es importante mencionar this.lista para referirse a la lista de la clase
-        mostrarListaCircular();
     }
 
 
-    public void setListaDobleAppController(ListaDobleAppController listaCircularAppController) {
-        this.listaDobleAppController = listaCircularAppController;
+    public void setListaDobleAppController(ListaDobleAppController listaDobleAppController) {
+        this.listaDobleAppController = listaDobleAppController;
+        listaDobleAppController.mostrarLista();
     }
+
     public void setListaDoble(ListaDobleLibros lista) {
         this.listaDoble = lista;  // Establecer la lista compartida es importante mencionar this.lista para referirse a la lista de la clase
-        mostrarListaDoble();
     }
 
 
@@ -74,33 +81,22 @@ public class ModificarLibroPosicionController implements Initializable {
         stage = primaryStage;
     }
 
-    @FXML
-    void mostrarListaCircular() {
-        if (listaCircularDoble == null) {
-            outputArea.setText("La lista no ha sido creada.");
-            return;
-        }
-        if (listaCircularDoble.isEmpty()) {
-            outputArea.setText("La lista está vacía.");
-            return;
-        }
-        outputArea.setText(listaCircularDoble.mostrarLista());
-    }
 
-    @FXML
-    void mostrarListaDoble() {
-        if (listaDoble == null) {
-            outputArea.setText("La lista no ha sido creada.");
-            return;
+    /*
+        @FXML
+        void mostrarListaDoble() {
+            if (listaDoble == null) {
+                outputArea.setText("La lista no ha sido creada.");
+                return;
+            }
+            if (listaDoble.isEmpty()) {
+                outputArea.setText("La lista está vacía.");
+                return;
+            }
+            outputArea.setText(listaDoble.mostrarLista());
         }
-        if (listaDoble.isEmpty()) {
-            outputArea.setText("La lista está vacía.");
-            return;
-        }
-        outputArea.setText(listaDoble.mostrarLista());
-    }
 
-
+    */
     public void onRegresar(ActionEvent actionEvent) throws Exception {
         stage.close();
     }
@@ -132,32 +128,19 @@ public class ModificarLibroPosicionController implements Initializable {
                     listaCircularDoble.modificarEnPosicion(posicionLibro, libroModificado);
                 }
 
-
                 System.out.println("Libro modificado en la posición " + (posicionLibro + 1) + ": " + libroModificado);
 
                 // Mostar un mensaje de éxito
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Libro Modificado");
-                alert.setHeaderText(null);
-                alert.setContentText("El libro ha sido modificado en la posición " + (posicionLibro + 1) + " de la lista.");
+                showWarningAlert("Éxito", "El libro ha sido modificado exitosamente.");
 
-                // Esperar a que el usuario presione "OK"
-                alert.showAndWait().ifPresent(response -> {
-                    if (response == ButtonType.OK) {
-                        Stage stage = (Stage) modificar.getScene().getWindow();
-                        mostrarListaCircular();
-                    }
-                });
-                titulo.clear();
-                autor.clear();
-                editorial.clear();
-                posicion.clear();
+
                 if (listaCircularAppController != null) {
                     listaCircularAppController.mostrarLista();
                 }
                 if (listaDobleAppController != null) {
                     listaDobleAppController.mostrarLista();
                 }
+
 
             } catch (NumberFormatException e) {
                 // Mostrar un mensaje de advertencia si la posición no es un número
@@ -189,6 +172,16 @@ public class ModificarLibroPosicionController implements Initializable {
 
     }
 
+    private void showWarningAlert(String title, String content) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.getDialogPane().getStylesheets().add(getClass().getResource("/org/cardona/estructuras/style.css").toExternalForm());
+        alert.getDialogPane().getStyleClass().add("custom-alert");
+        alert.showAndWait();
+    }
+
     private int indexActual() {
         if (listaCircularDoble != null) {
             return listaCircularDoble.size();
@@ -199,4 +192,14 @@ public class ModificarLibroPosicionController implements Initializable {
         return 0;
     }
 
+
+    public void setLibro(Libro libro) {
+        if (libro != null) {
+            posicion.setText(String.valueOf(slotIndexToController + 1));
+            posicion.setDisable(true); // Deshabilitar el campo de slot
+            titulo.setText(libro.getTitulo());
+            autor.setText(libro.getAutor());
+            editorial.setText(libro.getEditorial());
+        }
+    }
 }

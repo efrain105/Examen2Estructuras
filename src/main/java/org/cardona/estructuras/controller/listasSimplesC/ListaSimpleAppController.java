@@ -224,6 +224,8 @@ private int validarIndice(int tamanoLista) {
         dialog.setTitle("Índice");
         dialog.setHeaderText(null);
         dialog.setContentText("Ingrese el índice:");
+        dialog.getDialogPane().getStylesheets().add(getClass().getResource("/org/cardona/estructuras/style.css").toExternalForm());
+        dialog.getDialogPane().getStyleClass().add("custom-alert");
         Optional<String> result = dialog.showAndWait();
         if (result.isPresent() && result.get().matches("\\d+")) {
             index = Integer.parseInt(result.get());

@@ -41,6 +41,17 @@ public class ListaDobleLibros {
         this.size = size;
     }
 
+    public Libro obtenerPorPosicion(int i) {
+        if (i < 0 || i >= size) {
+            throw new IndexOutOfBoundsException("Posición fuera de rango");
+        }
+        Nodo aux = inicio;
+        for (int j = 0; j < i; j++) {
+            aux = aux.siguiente;
+        }
+        return aux.libro;
+    }
+
     // Clase interna Nodo
     public class Nodo {
         public Libro libro;

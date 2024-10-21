@@ -222,6 +222,16 @@ public class ListaCircularDoble {
     return libros;
 }
 
+    public Libro obtenerPorPosicion(int i) {
+        if (i < 0 || i >= tamanio) {
+            throw new IndexOutOfBoundsException("Posición no válida");
+        }
+        Nodo actual = primero;
+        for (int j = 0; j < i; j++) {
+            actual = actual.getSiguiente();
+        }
+        return actual.getDato();
+    }
 }
 
 

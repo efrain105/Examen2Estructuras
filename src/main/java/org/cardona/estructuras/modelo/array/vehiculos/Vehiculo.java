@@ -140,10 +140,11 @@ public class Vehiculo implements ActualizarDatosVehiculos {
 
 
     // metodo toString para mostrar la información del vehículo
+
+
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        return sb.toString();
+        return"";
     }
 
     @Override

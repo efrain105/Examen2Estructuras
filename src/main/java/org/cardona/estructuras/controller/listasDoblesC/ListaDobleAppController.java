@@ -179,21 +179,24 @@ public class ListaDobleAppController implements Initializable {
             return;
         }
 
+        int indice = validarIndice(listaDoble.size());
+        Libro libro = listaDoble.obtenerPorPosicion(indice - 1);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/cardona/estructuras/listasV/modificar-libro-posicion.fxml"));
-            Parent root = loader.load();
-            ModificarLibroPosicionController modificarLibroPosicionController = loader.getController();
-            modificarLibroPosicionController.setListaDoble(listaDoble);  // Pass the existing list to the new controller
-            modificarLibroPosicionController.setListaDobleAppController(this);  // Pasar la referencia del controlador principal
-
+        Parent root = loader.load();
+        ModificarLibroPosicionController modificarLibroPosicionController = loader.getController();
+        modificarLibroPosicionController.setListaDoble(listaDoble);
+        modificarLibroPosicionController.setListaDobleAppController(this);
+        modificarLibroPosicionController.setStage(stage);
+        modificarLibroPosicionController.setSlotIndex(indice - 1); // Pass the slot index
+        modificarLibroPosicionController.setLibro(libro); // Pass the existing vehicle data
         Stage stage = new Stage();
-            modificarLibroPosicionController.setStage(stage);
-            stage.setScene(new Scene(root));
-            stage.show();
-
+        modificarLibroPosicionController.setStage(stage);
+        stage.setScene(new Scene(root));
+        stage.show();
 
     }
-    // Mostrar lista de libros
 
+    // Mostrar lista de libros
     @FXML
     public void mostrarLista() {
         if (listaDoble == null) {
@@ -288,15 +291,20 @@ public class ListaDobleAppController implements Initializable {
 
 private int validarIndice(int tamanoLista) {
     int index = -1;
-    while (index < 1 || index > tamanoLista) {
+    while (index < 1 || index > tamanoLista ) {
         if (index != -1) {
             showWarningAlert("Índice inválido", "Por favor, ingrese un índice válido.");
         }
+
 
         TextInputDialog dialog = new TextInputDialog();
         dialog.setTitle("Índice");
         dialog.setHeaderText(null);
         dialog.setContentText("Ingrese el índice:");
+        dialog.getDialogPane().getStylesheets().add(getClass().getResource("/org/cardona/estructuras/style.css").toExternalForm());
+        dialog.getDialogPane().getStyleClass().add("custom-alert");
+
+
         Optional<String> result = dialog.showAndWait();
         if (result.isPresent() && result.get().matches("\\d+")) {
             index = Integer.parseInt(result.get());

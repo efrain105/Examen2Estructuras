@@ -86,6 +86,10 @@ public class AgregarLibroFinalController implements Initializable {
                 listaSimple.agregar(nuevoLibro);
             }
 
+            if(listaDobleLibros != null){
+                listaDobleLibros.insertarFinal(nuevoLibro);
+            }
+
             System.out.println("Libro agregado al final: " + nuevoLibro);
 
             // Formato alertas
@@ -108,6 +112,9 @@ public class AgregarLibroFinalController implements Initializable {
             }
             if (listaSimpleAppController != null){
                 listaSimpleAppController.mostrarLista();
+            }
+            if (listaDobleLibrosAppController != null){
+                listaDobleLibrosAppController.mostrarLista();
             }
 
         } else {

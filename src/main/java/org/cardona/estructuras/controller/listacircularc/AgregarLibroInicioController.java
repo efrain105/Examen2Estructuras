@@ -63,9 +63,14 @@ public class AgregarLibroInicioController implements Initializable {
         if (!tituloLibro.isEmpty() && !autorLibro.isEmpty() && !editorialLibro.isEmpty()) {
             Libro nuevoLibro = new Libro(tituloLibro, autorLibro, editorialLibro);
 
-            listaCircularDoble.insertarInicio(nuevoLibro);
+            if(listaCircularDoble != null){
+                listaCircularDoble.insertarInicio(nuevoLibro);
+            }
+            if(listaDobleLibros != null){
+                listaDobleLibros.insertarInicio(nuevoLibro);
+            }
 
-            System.out.println("Libro agregado al inicio: " + nuevoLibro);
+
 
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -81,7 +86,14 @@ public class AgregarLibroInicioController implements Initializable {
                 }
             });
 
-            listaCircularAppController.mostrarLista();
+
+            if (listaCircularAppController != null){
+                listaCircularAppController.mostrarLista();
+            }
+            if (listaDobleLibrosAppController != null){
+                listaDobleLibrosAppController.mostrarLista();
+            }
+
         } else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Campos Vacíos");
